@@ -1,16 +1,23 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import ArrowDropDownCircleOutlinedIcon from '@mui/icons-material/ArrowDropDownCircleOutlined'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { HeaderWrapper } from './Header-Wrap'
+import { HeaderWrapper, Logout, WelcomeListItem } from './Header-Wrap'
 import { Link } from 'react-router-dom'
-import { Button } from '@mui/material'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { logout } from '../../redux/slices/userSlice'
 const Header = () => {
   const {
     loggedInUser: { name },
   } = useSelector((state) => state.user)
+  const firstName = name ? name.split(' ')[0] : 'User'
 
-  // const userName = nameCapitalizer(name)
+  const { push } = useHistory()
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logout())
+    push('/')
+  }
   return (
     <HeaderWrapper>
       <h1 className='title'>
@@ -30,12 +37,8 @@ const Header = () => {
             My Courses
           </Link>
         </li>
-        <li>userName</li>
-        <li>
-          <Button>
-            <ArrowDropDownCircleOutlinedIcon />
-          </Button>
-        </li>
+        <WelcomeListItem>Welcome {firstName}</WelcomeListItem>
+        <Logout onClick={handleLogout}>Logout</Logout>
       </ul>
     </HeaderWrapper>
   )

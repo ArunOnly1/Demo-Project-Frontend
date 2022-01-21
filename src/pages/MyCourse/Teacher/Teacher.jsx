@@ -1,6 +1,5 @@
 import {
   Alert,
-  Box,
   Button,
   CircularProgress,
   Dialog,
@@ -16,7 +15,6 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { $axios } from '../../../lib/axios'
 import { Field, Formik } from 'formik'
 import {
   FlexWrapper,
@@ -36,11 +34,9 @@ const Teacher = () => {
   const [openModal, setOpenModal] = useState(false)
   const [fromTime, setFromTime] = useState(new Date('2014-08-18T09:11:54'))
   const [toTime, setToTime] = useState(new Date('2014-08-18T21:11:54'))
+  const { categories } = useSelector((state) => state.category)
   // const [timeError, setTimeError] = useState(false)
   const [courseCreationSuccess, setCourseCreationSuccess] = useState(false)
-
-  const { categories } = useSelector((state) => state.category)
-  console.log(categories)
 
   const dispatch = useDispatch()
 
@@ -110,13 +106,13 @@ const Teacher = () => {
       {!loading && !isError && (
         <>
           <ButtonWrapper>
-            <BetterButton
+            <Button
               onClick={() => {
                 setOpenModal(true)
               }}
             >
               Create a course
-            </BetterButton>
+            </Button>
           </ButtonWrapper>
           <Snackbar
             open={courseCreationSuccess}
@@ -142,11 +138,11 @@ const Teacher = () => {
           >
             <Formik
               initialValues={{
-                title: 'hello',
-                description: 'hello I am from Nepal',
-                length: '25',
-                price: '55',
-                capacity: '11',
+                title: '',
+                description: '',
+                length: '',
+                price: '',
+                capacity: '',
                 category: categories[0],
               }}
               validationSchema={validationSchema}

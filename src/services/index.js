@@ -36,6 +36,14 @@ export const coursePusher = async (course) => {
   }
 }
 
+export const updateCourse = async (_id, course) => {
+  try {
+    const response = await $axios.patch(`/courses/${_id}`, course)
+    return response
+  } catch (error) {
+    throw error
+  }
+}
 export const allCourseFetcher = async () => {
   try {
     const response = await $axios.get('/courses/all')

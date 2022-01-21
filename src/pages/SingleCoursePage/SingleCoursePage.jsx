@@ -83,36 +83,38 @@ const SingleCoursePage = () => {
       {!isError && (
         <SingleCourseWrapper>
           <CourseImage />
-          <CourseContent>
-            <TitleWrapper>{course?.title}</TitleWrapper>
-            {course && course.courseCategory && (
-              <OvalBox>{course.courseCategory[0].name.toUpperCase()}</OvalBox>
-            )}
-            <p>Price:${course?.price}</p>
-            <p>Length:{course?.length} hour</p>
+          {course && (
+            <CourseContent>
+              <TitleWrapper>{course?.title}</TitleWrapper>
+              {course && course.courseCategory && (
+                <OvalBox>{course.courseCategory[0].name.toUpperCase()}</OvalBox>
+              )}
+              <p>Price:${course?.price}</p>
+              <p>Length:{course?.length} hour</p>
 
-            <p>
-              Time:
-              <span>
-                {/* {moment(course?.availability?.from).format('LTS')} */}
+              <p>
+                Time:
+                <span>
+                  {/* {moment(course?.availability?.from).format('LTS')} */}
 
-                {course?.availability?.from}
-                <span> to </span>
-                <span>{course?.availability?.to}</span>
-              </span>
-            </p>
-
-            {course && course.courseOwner && isStudent && (
-              <p style={{ textTransform: 'capitalize' }}>
-                Creator: {course.courseOwner[0].name}
+                  {course?.availability?.from}
+                  <span> to </span>
+                  <span>{course?.availability?.to}</span>
+                </span>
               </p>
-            )}
-            {course && course.students && (
-              <p>Enrolled students:{course.students.length}</p>
-            )}
-            <p>Student limit: {course?.capacity}</p>
-            <DescriptionWrapper>{course?.description}</DescriptionWrapper>
-          </CourseContent>
+
+              {course && course.courseOwner && isStudent && (
+                <p style={{ textTransform: 'capitalize' }}>
+                  Creator: {course.courseOwner[0].name}
+                </p>
+              )}
+              {course && course.students && (
+                <p>Enrolled students:{course.students.length}</p>
+              )}
+              <p>Student limit: {course?.capacity}</p>
+              <DescriptionWrapper>{course?.description}</DescriptionWrapper>
+            </CourseContent>
+          )}
         </SingleCourseWrapper>
       )}
 

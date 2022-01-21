@@ -3,8 +3,6 @@ import axios from 'axios'
 export const $axios = axios.create({
   baseURL: 'http://localhost:5000/api',
 
-  // baseURL: 'http://10.0.0.157:5000/api',
-
   timeout: 1000,
 })
 

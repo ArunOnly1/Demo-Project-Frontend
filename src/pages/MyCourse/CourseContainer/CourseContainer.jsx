@@ -6,7 +6,9 @@ import { useSelector } from 'react-redux'
 
 const CourseContainer = () => {
   const [allCourse, setAllCourse] = useState([])
-  const { courseDeleted, courseCreated } = useSelector((state) => state.course)
+  const { courseDeleted, courseCreated, courseUpdated } = useSelector(
+    (state) => state.course
+  )
 
   const courseFetcher = async () => {
     try {
@@ -22,7 +24,7 @@ const CourseContainer = () => {
   //   TODO:Add pagination
   React.useEffect(() => {
     courseFetcher()
-  }, [courseDeleted, courseCreated])
+  }, [courseDeleted, courseCreated, courseUpdated])
   return (
     <CardWrapper>
       {allCourse.map((course) => (

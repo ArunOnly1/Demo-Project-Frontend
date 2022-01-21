@@ -22,3 +22,14 @@ export const HeaderWrapper = styled.div`
     }
   }
 `
+
+export const WelcomeListItem = styled.li`
+  text-transform: capitalize;
+`
+
+export const Logout = styled.li`
+  &:hover {
+    color: green;
+    cursor: pointer;
+  }
+`

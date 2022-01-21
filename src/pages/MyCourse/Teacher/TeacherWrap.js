@@ -38,13 +38,17 @@ export const FlexWrapper = styled.div`
   align-items: center;
 `
 
-export const BetterButton = styled(Button)`
-  display: inline-block;
-  padding: 10rem;
-  font-size: 2rem;
-  color: white;
-`
 export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100px;
-  background-color: pink;
+  background-color: black;
+  Button {
+    color: orange;
+    font-size: 1rem;
+    &:hover {
+      border-bottom: 5px solid green;
+    }
+  }
 `

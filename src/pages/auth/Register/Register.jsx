@@ -3,9 +3,11 @@ import { Formik, Field, Form, useField } from 'formik'
 import * as Yup from 'yup'
 import { Alert, Button, Snackbar, TextField } from '@mui/material'
 import { Link, useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 import { BottomLink, RegisterWrap } from './Register-Wrap'
 import { register } from '../../../services/index'
+import { updateRegistrationStatus } from '../../../redux/slices/userSlice'
 
 const MySelect = ({ label, ...props }) => {
   const [field, meta] = useField(props)
@@ -40,6 +42,7 @@ const validationSchema = Yup.object().shape({
 })
 
 const Register = () => {
+  const dispatch = useDispatch()
   const { push } = useHistory()
 
   const [registerFailed, setRegisterFailed] = useState(false)
@@ -48,6 +51,7 @@ const Register = () => {
     try {
       const status = await register(data)
       if (status === 201) {
+        dispatch(updateRegistrationStatus(true))
         push('/')
       }
     } catch (error) {

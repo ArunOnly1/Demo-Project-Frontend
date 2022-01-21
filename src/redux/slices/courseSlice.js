@@ -5,6 +5,7 @@ const courseSlice = createSlice({
   initialState: {
     courseDeleted: false,
     courseCreated: false,
+    courseUpdated: false,
     pageNumber: 1,
   },
   reducers: {
@@ -17,9 +18,16 @@ const courseSlice = createSlice({
     changePageNumber: (state, action) => {
       state.pageNumber = action.payload
     },
+    isCourseUpdated: (state) => {
+      state.courseUpdated = !state.courseUpdated
+    },
   },
 })
 
-export const { isCourseDeleted, isCourseCreated, changePageNumber } =
-  courseSlice.actions
+export const {
+  isCourseDeleted,
+  isCourseCreated,
+  isCourseUpdated,
+  changePageNumber,
+} = courseSlice.actions
 export default courseSlice.reducer

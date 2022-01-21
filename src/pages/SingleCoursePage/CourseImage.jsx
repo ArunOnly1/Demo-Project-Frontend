@@ -8,11 +8,11 @@ import {
 } from './SingleCourse-Wrap'
 
 const imageArray = [
-  'https://image.shutterstock.com/image-illustration/hands-young-man-on-keyboard-260nw-134102588.jpg',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwq8UveKU4kpBXmnFUbL8xH6unIwcYh07GIg&usqp=CAU',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1-EeeXqgvbTx5m4j9vp_8fTyJ5S8WbX9nCQ&usqp=CAU',
-  'https://image.shutterstock.com/image-vector/vector-hand-circle-tech-on-260nw-662754781.jpg',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTomzpbd0s1JsJDCQOS0j14UfeBpWGTVTsp0w&usqp=CAU',
+  'https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80',
+  'https://images.unsplash.com/photo-1571145421212-89e234a38c7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+  'https://images.unsplash.com/photo-1638027610257-3495ec5ca9e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+  'https://images.unsplash.com/photo-1640576905072-8181534f83ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80',
+  'https://images.unsplash.com/photo-1639653818508-73a22946636d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
 ]
 const CourseImage = () => {
   const [images, setImages] = useState(imageArray)

@@ -1,13 +1,16 @@
-import './App.css'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 import {
-  MarketPlace,
-  SingleCoursePage,
   Home,
   Login,
-  Register,
+  MarketPlace,
   MyCourse,
+  Register,
+  SingleCoursePage,
 } from './pages'
+import './App.css'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
+import { useSelector } from 'react-redux'
 
 function App() {
   return (
@@ -20,18 +23,18 @@ function App() {
           <Register />
         </Route>
         {/* <Header /> */}
-        <Route path='/home'>
+        <PrivateRoute path='/home'>
           <Home />
-        </Route>
-        <Route path='/market'>
+        </PrivateRoute>
+        <PrivateRoute path='/market'>
           <MarketPlace />
-        </Route>
-        <Route path='/course/:id'>
+        </PrivateRoute>
+        <PrivateRoute path='/course/:id'>
           <SingleCoursePage />
-        </Route>
-        <Route path='/mycourses'>
+        </PrivateRoute>
+        <PrivateRoute path='/mycourses'>
           <MyCourse />
-        </Route>
+        </PrivateRoute>
       </Switch>
     </Router>
   )

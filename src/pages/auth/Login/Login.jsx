@@ -6,11 +6,10 @@ import {
   TextField,
   Snackbar,
   Alert,
-  responsiveFontSizes,
   CircularProgress,
 } from '@mui/material'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { BottomLink } from '../Register/Register-Wrap'
 import { addLoggedInUser } from '../../../redux/slices/userSlice'
@@ -19,9 +18,11 @@ import { LoginWrap } from './Login_Wrap'
 
 const Login = () => {
   const { push } = useHistory()
+  const { loggedInUser } = useSelector((state) => state.user)
+
   const dispatch = useDispatch()
   const [isLoginFailed, setIsLoginFailed] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('Something went wrong')
   const [loading, setLoading] = useState(false)
 
   const validationSchema = Yup.object().shape({
@@ -52,6 +53,10 @@ const Login = () => {
     }
     setIsLoginFailed(false)
   }
+
+  React.useEffect(() => {
+    loggedInUser._id && push('/home')
+  }, [loggedInUser._id])
   return (
     <LoginWrap>
       <Snackbar
@@ -65,7 +70,7 @@ const Login = () => {
         </Alert>
       </Snackbar>
       <Formik
-        initialValues={{ email: 'ramesh@gmail.com', password: 'ramesh1234' }}
+        initialValues={{ email: '', password: '' }}
         validationSchema={validationSchema}
         onSubmit={handleLogin}
       >
