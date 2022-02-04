@@ -11,8 +11,10 @@ import {
 import './App.css'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import { useSelector } from 'react-redux'
+import { Header } from './components'
 
 function App() {
+  const { loggedInUser } = useSelector((state) => state.user)
   return (
     <Router>
       <Switch>
@@ -22,7 +24,7 @@ function App() {
         <Route path='/register'>
           <Register />
         </Route>
-        {/* <Header /> */}
+
         <PrivateRoute path='/home'>
           <Home />
         </PrivateRoute>
