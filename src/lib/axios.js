@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const $axios = axios.create({
-  baseURL: 'https://super-tutor123.herokuapp.com',
+  baseURL: 'https://super-tutor123.herokuapp.com/api',
 
   timeout: 1000,
 })
